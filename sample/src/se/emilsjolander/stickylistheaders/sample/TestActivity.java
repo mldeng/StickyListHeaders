@@ -1,6 +1,8 @@
 package se.emilsjolander.stickylistheaders.sample;
 
+import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -9,7 +11,6 @@ import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,12 +19,10 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
-import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
-
 /**
  * @author Emil Sjölander
  */
-public class TestActivity extends ActionBarActivity implements
+public class TestActivity extends Activity implements
         AdapterView.OnItemClickListener, StickyListHeadersListView.OnHeaderClickListener,
         StickyListHeadersListView.OnStickyHeaderOffsetChangedListener,
         StickyListHeadersListView.OnStickyHeaderChangedListener {
@@ -89,9 +88,6 @@ public class TestActivity extends ActionBarActivity implements
 
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
 
         restoreButton = (Button) findViewById(R.id.restore_button);
         restoreButton.setOnClickListener(buttonListener);
